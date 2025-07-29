@@ -3,15 +3,15 @@ import pickle
 import pandas as pd
 import requests
 
-# Load data
+
 movies = pickle.load(open('movies.pkl', 'rb'))
 similarity = pickle.load(open('similarity.pkl', 'rb'))
-# Function to fetch poster from TMDB
-import streamlit as st
+
+
 import requests
 
-# Load API key from secrets.toml
-tmdb_api_key = st.secrets["TMDB_API_KEY"]
+
+tmdb_api_key = " your api key here " 
 
 def fetch_poster(movie_title):
     try:
@@ -29,7 +29,7 @@ def fetch_poster(movie_title):
 
 
 
-# Recommend function
+
 def recommend(movie):
     if movie not in movies['title'].values:
         return ["Movie not found"], []
@@ -46,7 +46,7 @@ def recommend(movie):
     return recommended_titles, recommended_posters
 
 
-# Streamlit UI
+
 st.set_page_config(page_title="Movie Recommender", layout="wide")
 st.markdown(
     "<h1 style='text-align: center; color: #FF4500;'>🍿 Movie Recommender System</h1>",
